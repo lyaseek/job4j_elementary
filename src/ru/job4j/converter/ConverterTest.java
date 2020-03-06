@@ -17,7 +17,7 @@ public class ConverterTest {
     public void rubleToDollar() {
         int in = 0;
         int expected = 2;
-        int out = Converter.rubleToEuro(in);
+        int out = Converter.rubleToDollar(in);
         Assert.assertEquals(expected, out);
     }
 }
