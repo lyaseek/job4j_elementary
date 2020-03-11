@@ -20,7 +20,7 @@ public class CheckPrimeNumberTest {
 
     @Test
     public void when1() {
-        boolean rsl = CheckPrimeNumber.check(1);
-        assertThat(rsl, is(false));
+        boolean rsl = CheckPrimeNumber.check(2);
+        assertThat(rsl, is(true));
     }
 }
