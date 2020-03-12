@@ -10,6 +10,15 @@ public class ArrayDefinition {
         short[] ages = new short[10];
         String[] surnames = new String[100500];
         float[] prices = new float[40];
+        String[] names = new String[4];
 
+        names[0] = "Ivan Ivanov";
+        names[1] = "Petr Petrov";
+        names[2] = "Andrey Smirnov";
+        names[3] = "Ivan Petrov";
+
+        for (String x : names) {
+            System.out.println(x);
+        }
     }
 }
