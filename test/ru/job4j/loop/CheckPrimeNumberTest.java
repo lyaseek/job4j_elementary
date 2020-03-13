@@ -14,13 +14,13 @@ public class CheckPrimeNumberTest {
 
     @Test
     public void when4() {
-        boolean rsl = CheckPrimeNumber.check(0);
+        boolean rsl = CheckPrimeNumber.check(4);
         assertThat(rsl, is(false));
     }
 
     @Test
     public void when1() {
-        boolean rsl = CheckPrimeNumber.check(2);
-        assertThat(rsl, is(true));
+        boolean rsl = CheckPrimeNumber.check(1);
+        assertThat(rsl, is(false));
     }
 }
