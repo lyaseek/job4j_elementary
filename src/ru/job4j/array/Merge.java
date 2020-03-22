@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.util.Arrays;
 
 public class Merge {
-
     public int[] merge(int[] left, int[] right) {
         int[] rsl = new int[left.length + right.length];
         int leftIndex = 0, rightIndex = 0, i = 0;
@@ -15,35 +14,31 @@ public class Merge {
             }
             return rsl;
         }
-
         if ((right.length == 0) && (left.length != 0)) {
             for (int j = 0; j < left.length; j++) {
                 rsl[j] = left[j];
             }
             return rsl;
         }
-
-        if ((right.length == 0) && (left.length == 0)) {
-            return rsl;
-        }
-
-        while (i < rsl.length) {
+        while ((leftIndex + rightIndex) != rsl.length) {
             if (left[leftIndex] < right[rightIndex]) {
-                rsl[i] = left[leftIndex];
+                rsl[leftIndex + rightIndex] = left[leftIndex];
                 leftIndex++;
-                if (leftIndex > left.length - 1) {
-                    leftIndex--;
-                    left[leftIndex] = right[rightIndex] + 1;
+                if (leftIndex == left.length) {
+                    while (rightIndex < right.length) {
+                        rsl[rightIndex + leftIndex] = right[rightIndex];
+                        rightIndex++;
+                    }
                 }
-                i++;
             } else {
-                rsl[i] = right[rightIndex];
+                rsl[leftIndex + rightIndex] = right[rightIndex];
                 rightIndex++;
-                if (rightIndex > right.length - 1) {
-                    rightIndex--;
-                    right[rightIndex] = left[leftIndex] + 1;
+                if (rightIndex == right.length) {
+                    while (leftIndex < left.length) {
+                        rsl[rightIndex + leftIndex] = left[leftIndex];
+                        leftIndex++;
+                    }
                 }
-                i++;
             }
         }
         return rsl;
@@ -52,8 +47,8 @@ public class Merge {
     public static void main(String[] args) {
         Merge process = new Merge();
         int[] rsl = process.merge(
-                new int[]{1, 3, 5},
-                new int[]{2, 4});
+                new int[]{1, 2},
+                new int[]{3, 4, 4});
         System.out.println(Arrays.toString(rsl));
     }
 }
