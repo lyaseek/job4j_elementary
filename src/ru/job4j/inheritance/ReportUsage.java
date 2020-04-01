@@ -5,6 +5,6 @@ public class ReportUsage {
         JSONReport report = new JSONReport();
         System.out.println(report.generate("name", "body"));
         HtmlReport htmlReport = new HtmlReport();
-        System.out.println(htmlReport.generate("name", "body"));
+        //System.out.println(htmlReport.generate("name", "body"));
     }
 }
