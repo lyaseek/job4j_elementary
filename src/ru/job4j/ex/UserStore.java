@@ -11,11 +11,10 @@ public class UserStore {
     }
 
     public static boolean validate(User user) throws UserInvalidException {
-        if ((user.isValid()) && (user.getUsername().length() > 3)) {
-            return true;
-        } else {
+        if ((!user.isValid()) || (user.getUsername().length() < 3)) {
             throw new UserInvalidException("User " + user.getUsername() + " is invalid.");
         }
+        return true;
     }
 
     public static void main(String[] args) {
@@ -23,10 +22,10 @@ public class UserStore {
                 new User("Petr Arsentev", true),
                 new User("Ivan Sokolov", true),
                 new User("Petr Petrov", false),
-                new User("Anna Anton", true)
+                new User("Anna", true)
         };
         try {
-            User user = findUser(users, "Petr Petrov");
+            User user = findUser(users, "");
             if (validate(user)) {
                 System.out.println("This user has an access");
             }
