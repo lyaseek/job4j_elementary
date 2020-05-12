@@ -1,6 +1,9 @@
 package ru.job4j.bank;
 
 import org.junit.Test;
+import ru.job4j.collection.bank.Account;
+import ru.job4j.collection.bank.BankService;
+import ru.job4j.collection.bank.User;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
