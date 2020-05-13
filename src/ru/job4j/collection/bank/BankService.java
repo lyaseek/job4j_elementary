@@ -18,7 +18,6 @@ public class BankService {
             List<Account> list = users.get(user);
             if (!list.contains(account)) {
                 list.add(account);
-                users.put(user, list);
             }
         }
     }
@@ -31,6 +30,7 @@ public class BankService {
         }
         return null;
     }
+
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {

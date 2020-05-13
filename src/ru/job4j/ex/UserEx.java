@@ -1,11 +1,11 @@
 package ru.job4j.ex;
 
-public class User {
+public class UserEx {
 
     private String username;
     private boolean valid;
 
-    public User(String username, boolean valid) {
+    public UserEx(String username, boolean valid) {
         this.username = username;
         this.valid = valid;
     }
