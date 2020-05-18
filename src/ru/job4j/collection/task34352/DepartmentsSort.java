@@ -13,7 +13,8 @@ public class DepartmentsSort implements Comparator<String> {
         if (rsl != 0) {
             return rsl;
         }
-        return o1.replaceFirst(array1[0], "").compareTo(o2.replaceFirst(array2[0], ""));
+        return o1.compareTo(o2);
+
     }
 }
 
