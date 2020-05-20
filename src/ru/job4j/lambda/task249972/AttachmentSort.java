@@ -1,5 +1,7 @@
 package ru.job4j.lambda.task249972;
 
+import ru.job4j.lambda.task249972.Attachment;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
