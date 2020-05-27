@@ -1,6 +1,7 @@
-package ru.job4j.stream.task249981;
+package ru.job4j.stream;
 
 import org.junit.Test;
+import ru.job4j.stream.task249981.School;
 
 import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.assertThat;
