@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 public class StudentsListToMap {
     public Map<String, String> collect(List<Student> students) {
         //return students.stream().distinct().collect(Collectors.toMap(Student::getSurname, Student::getScore));
-        return students.stream().collect(Collectors.toMap(Student::getSurname, Student -> Student.getScore() + "", (key, value) -> key + "|" + value));
+        //return students.stream().collect(Collectors.toMap(Student::getSurname, Student -> Student.getScore() + "", (key, value) -> key + "|" + value));
+        return students.stream().collect(Collectors.toMap(Student::getSurname, Student -> Student + "", (key, value) -> key + "|" + value));
     }
 }
