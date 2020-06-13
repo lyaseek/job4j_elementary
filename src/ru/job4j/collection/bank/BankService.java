@@ -1,9 +1,13 @@
 package ru.job4j.collection.bank;
 
+import ru.job4j.converter.Converter;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
@@ -11,7 +15,6 @@ public class BankService {
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<>());
     }
-
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
         if (user != null) {
@@ -21,29 +24,18 @@ public class BankService {
             }
         }
     }
-
     public User findByPassport(String passport) {
-        for (User x : users.keySet()) {
-            if (x.getPassport().equals(passport)) {
-                return x;
-            }
-        }
-        return null;
+        List<User> list = users.keySet().stream().filter(u -> u.getPassport().equals(passport)).collect(Collectors.toList());
+        return list.size() != 0 ? list.get(0) : null;
     }
-
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
+        List<Account> list = new ArrayList<>();
         if (user != null) {
-            List<Account> list = users.get(user);
-            for (Account x : list) {
-                if (x.getRequisite().equals(requisite)) {
-                    return x;
-                }
-            }
+            list = users.get(user).stream().filter(a -> a.getRequisite().equals(requisite)).collect(Collectors.toList());
         }
-        return null;
+        return list.size() != 0 ? list.get(0) : null;
     }
-
     public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
         Account srcAccount = findByRequisite(srcPassport, srcRequisite);
