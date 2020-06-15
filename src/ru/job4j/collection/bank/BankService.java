@@ -25,16 +25,14 @@ public class BankService {
         }
     }
     public User findByPassport(String passport) {
-        List<User> list = users.keySet().stream().filter(u -> u.getPassport().equals(passport)).collect(Collectors.toList());
-        return list.size() != 0 ? list.get(0) : null;
+        return users.keySet().stream().filter(u -> u.getPassport().equals(passport)).findFirst().orElse(null);
     }
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
-        List<Account> list = new ArrayList<>();
         if (user != null) {
-            list = users.get(user).stream().filter(a -> a.getRequisite().equals(requisite)).collect(Collectors.toList());
+           return users.get(user).stream().filter(a -> a.getRequisite().equals(requisite)).findFirst().orElse(null);
         }
-        return list.size() != 0 ? list.get(0) : null;
+        return null;
     }
     public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
