@@ -18,7 +18,7 @@ public class StudentsListToMapTest {
                 new Student("Petrov", 20),
                 new Student("Ivanov", 2000),
                 new Student("Ivanov", 20),
-                new Student("Kozlov", 30))).get("Ivanov"),
-                is("Student{score=200, surname='Ivanov'}|Student{score=2000, surname='Ivanov'}|Student{score=20, surname='Ivanov'}"));
+                new Student("Kozlov", 30))).get("Ivanov").toString(),
+                is("Student{score=200, surname='Ivanov'}"));
     }
 }
